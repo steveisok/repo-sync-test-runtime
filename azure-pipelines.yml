@@ -1,0 +1,35 @@
+trigger: none  # we only trigger on PRs
+
+pr:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - src/mono/mono/*
+    - src/mono/msvc/mono.vcxproj
+    - src/mono/autogen.sh
+    - src/mono/configure.ac
+    - src/mono/Makefile.am
+    - src/mono/acinclude.m4
+    - src/mono/config.rpath
+    - src/mono/winconfig.h
+
+pool:
+  vmImage: ubuntu-latest
+
+resources:
+  repositories:
+  - repository: MonoRepo
+    type: github
+    endpoint: MyFirstProject
+    name: akoeplinger/repo-sync-test-mono
+
+steps:
+
+- checkout: MonoRepo
+
+- bash: |
+    echo hello
+    ls -la
+  displayName: Apply to target repo
