@@ -7,6 +7,8 @@
     <SwapNativeForIL Condition="'$(SwapNativeForIL)' == '' and ('$(ConfigurationGroup)' == 'Debug' or '$(Coverage)' == 'true')">true</SwapNativeForIL>
     <CoreCLROSGroup Condition="'$(CoreCLROSGroup)' == ''">$(DefaultOSGroup)</CoreCLROSGroup>
     <CoreCLRConfiguration Condition="'$(CoreCLRConfiguration)' == ''">$(ConfigurationGroup)</CoreCLRConfiguration>
+    <MonoOSGroup Condition="'$(MonoOSGroup)' == ''">$(DefaultOSGroup)</MonoOSGroup>
+    <MonoConfiguration Condition="'$(MonoConfiguration)' == ''">$(ConfigurationGroup)</MonoConfiguration>
     <BinPlaceForTargetVertical>false</BinPlaceForTargetVertical>
   </PropertyGroup>
 
@@ -62,10 +64,11 @@
   </Target>
 
   <Target Name="OverrideRuntime"
-          DependsOnTargets="ResolveCoreCLRFilesFromLocalBuild"
+          DependsOnTargets="ResolveCoreCLRFilesFromLocalBuild;ResolveMonoFilesFromLocalBuild"
           AfterTargets="AfterResolveReferences;FilterNugetPackages">
     <ItemGroup>
-      <ReferenceCopyLocalPaths Include="@(CoreCLRFiles)" />
+      <ReferenceCopyLocalPaths Include="@(CoreCLRFiles)" Condition="'$(TestRuntimeFlavor)' != 'Mono'" />
+      <ReferenceCopyLocalPaths Include="@(MonoFiles)" Condition="'$(TestRuntimeFlavor)' == 'Mono'" />
     </ItemGroup>
   </Target>
 
@@ -79,7 +82,7 @@
   <Target Name="SwapNativeForIL"
           AfterTargets="AfterResolveReferences"
           DependsOnTargets="GetCoreCLRILFiles;OverrideRuntime"
-          Condition="'$(SwapNativeForIL)' == 'true'">
+          Condition="'$(SwapNativeForIL)' == 'true' and '$(TestRuntimeFlavor)' != 'Mono' ">
       <ItemGroup>
         <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="'@(CoreCLRILFiles->'%(FileName)%(Extension)')' == '%(FileName)%(Extension)'" />
         <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="'@(CoreCLRILFiles->'%(FileName).ni%(Extension)')' == '%(FileName)%(Extension)'" />
