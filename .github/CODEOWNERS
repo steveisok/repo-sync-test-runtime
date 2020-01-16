@@ -3,3 +3,60 @@
 
 /src/libraries/Common/src/System/Net/Http/Http2/                    @dotnet/http2
 /src/libraries/Common/tests/Tests/System/Net/Http2/                 @dotnet/http2
+
+# Mono-specific owners
+/src/mono/* @marek-safar
+
+/src/mono/mono/arch @vargaz @lewurm
+
+/src/mono/mono/btls @baulig @marek-safar
+/src/mono/mono/dis @lambdageek @vargaz
+/src/mono/mono/eglib @vargaz @lambdageek
+
+/src/mono/mono/benchmark @SamMonoRT @lewurm
+
+/src/mono/mono/metadata @vargaz @lambdageek @thaystg
+/src/mono/mono/metadata/*profiler* @lambdageek
+/src/mono/mono/metadata/handle* @lambdageek @vargaz
+/src/mono/mono/metadata/monitor* @brzvlad @vargaz
+/src/mono/mono/metadata/sgen* @brzvlad @vargaz @naricc
+/src/mono/mono/metadata/thread* @lateralusX @lambdageek
+/src/mono/mono/metadata/w32* @lateralusX @lambdageek
+/src/mono/mono/metadata/*-win* @lateralusX @lambdageek
+/src/mono/mono/metadata/appdomain* @vargaz @lambdageek @CoffeeFlux
+/src/mono/mono/metadata/assembly* @vargaz @lambdageek @CoffeeFlux
+/src/mono/mono/metadata/domain* @vargaz @lambdageek @CoffeeFlux
+/src/mono/mono/metadata/loader* @vargaz @lambdageek @CoffeeFlux
+/src/mono/mono/metadata/native-library* @vargaz @lambdageek @CoffeeFlux
+/src/mono/mono/metadata/*-unix* @lambdageek @CoffeeFlux
+
+/src/mono/mono/mini @vargaz @lewurm @lambdageek @SamMonoRT
+/src/mono/mono/mini/*cfgdump* @lewurm @vargaz
+/src/mono/mono/mini/*exceptions* @lewurm @vargaz @BrzVlad
+/src/mono/mono/mini/*ppc* @lewurm @vargaz
+/src/mono/mono/mini/*riscv* @alexrp @lewurm
+/src/mono/mono/mini/*type-check* @lewurm @lambdageek
+/src/mono/mono/mini/*llvm* @vargaz @imhameed
+/src/mono/mono/mini/interp/* @lewurm @BrzVlad
+/src/mono/mono/mini/*profiler* @BrzVlad @lambdageek
+/src/mono/mono/mini/debugger-agent.c @vargaz @thaystg @DavidKarlas @lambdageek
+
+/src/mono/mono/native @baulig @egorbo @alexischr @marek-safar
+
+/src/mono/mono/profiler @BrzVlad @lambdageek
+
+/src/mono/mono/sgen @BrzVlad @lambdageek
+
+/src/mono/mono/utils @vargaz @lewurm @lambdageek
+/src/mono/mono/utils/atomic* @lewurm @vargaz
+/src/mono/mono/utils/mono-hwcap* @lewurm @vargaz
+/src/mono/mono/utils/mono-mem* @lewurm @vargaz
+/src/mono/mono/utils/mono-merp* @alexischr @lambdageek
+/src/mono/mono/utils/mono-state* @alexischr @lambdageek
+/src/mono/mono/utils/mono-threads* @lambdageek @vargaz
+/src/mono/mono/utils/*-win* @lateralusX @lambdageek
+
+/src/mono/msvc @lateralusX @kg @akoeplinger
+/src/mono/msvc/scripts @akoeplinger @kg
+
+/src/mono/netcore @marek-safar @akoeplinger @egorbo @vargaz @steveisok
