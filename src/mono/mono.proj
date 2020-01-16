@@ -3,7 +3,7 @@
   <Import Project="Directory.Build.targets" />
 
   <PropertyGroup>
-    <MonoObjDir>$(ArtifactsObjDir)mono/</MonoObjDir>
+    <MonoObjDir>$(ArtifactsObjDir)mono/$(PlatformConfigPathPart)/</MonoObjDir>
     <MonoEnableLLVM Condition=" '$(MonoEnableLLVM)' == '' ">false</MonoEnableLLVM>
   </PropertyGroup>
 
