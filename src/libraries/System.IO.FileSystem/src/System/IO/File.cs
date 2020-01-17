@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+// I added something that wasn't in mono.  Bot should not kick
+
 #if MS_IO_REDIST
 namespace Microsoft.IO
 #else
